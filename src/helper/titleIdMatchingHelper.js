@@ -6,6 +6,10 @@ import { OMDB_API_KEY } from '../../config';
 
 const getApiUrl = ({ string }) => `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${string}*`;
 
+const filterResultsForMoviesAndSeries = items => (
+  items.filter(item => item.Type === "movie" || item.Type === "series")
+);
+
 const fuzzyFindItemByString = async ({ string, setter }) => {
   if (string.length > 0) {
     const apiUrl = getApiUrl({ string });
@@ -16,7 +20,8 @@ const fuzzyFindItemByString = async ({ string, setter }) => {
         console.log("data:", data);
         if ("Search" in data) {
           const items = data.Search.slice(0, 3);
-          setter(items);
+          const filteredItems = filterResultsForMoviesAndSeries(items)
+          setter(filteredItems);
         } else if (data.Response === "False") {
           setter([]);
         }
