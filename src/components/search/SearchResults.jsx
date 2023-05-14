@@ -12,7 +12,7 @@ const SearchResults = ({ items, pickItem }) => (
         <SearchResultItem
           title={Title}
           image={Poster}
-          imdbID={imdbID}
+          imdbId={imdbID}
           key={Poster}
           year={Year}
           type={Type}
