@@ -4,17 +4,13 @@ export const fetchPoemFromApi = async({ payload, setter }) => {
   try {
     const response = await fetch(API_URL, {
       method: 'POST',
-      mode: 'no-cors',
       body: JSON.stringify(payload),
       headers: {
         'Content-Type': 'application/json'
       }
     });
-    if (response.ok) {
-        const jsonResponse = await response.json();
-        setter(jsonResponse);
-    }
-    throw new Error('Request failed!');
+    const jsonResponse = await response.json();
+    setter(jsonResponse.poem);
   } catch (error) {
     console.log(error);
   }
