@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import debounce from "lodash/debounce";
 
-import searchApiCall from "../helper/titleIdMatchingHelper";
+import searchApiCall from "../../helper/titleIdMatchingHelper";
 
 const Search = ({ setSearchResults }) => {
   const [searchTerm, setSearchTerm] = useState("");
