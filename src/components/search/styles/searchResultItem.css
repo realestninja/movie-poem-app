@@ -4,6 +4,11 @@
   padding: 10px;
 }
 
+.search-result-item:hover {
+  cursor: pointer;
+  background-color: #3c3c3c;
+}
+
 .search-result-item h2 {
   font-size: 1.2em;
   margin: 0;
