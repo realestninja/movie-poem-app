@@ -28,7 +28,7 @@ const Search = ({ setSearchResults }) => {
         value={searchTerm}
         type="text"
         onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Pick a movie or series:"
+        placeholder="Pick a movie or series"
       />
     </div>
   );
