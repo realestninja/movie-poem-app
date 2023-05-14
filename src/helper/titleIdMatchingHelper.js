@@ -4,7 +4,7 @@ import noop from 'lodash/noop';
 
 import { OMDB_API_KEY } from '../../config';
 
-const getApiUrl = ({ string }) => `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${string}*`;
+const getApiUrl = ({ string }) => `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${string.trim()}*`;
 
 const filterResultsForMoviesAndSeries = items => (
   items.filter(item => item.Type === "movie" || item.Type === "series")
