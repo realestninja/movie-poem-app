@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import noop from "lodash/noop";
 
 import SearchResultItem from './SearchResultItem';
+import "./styles/searchResults.css";
 
 const SearchResults = ({ items, pickItem }) => (
-  <div>
+  <div className="search-results-wrapper">
     {items.length > 0 && items.map((item) => {
       const { Title, Poster, imdbID, Year, Type } = item;
       return (

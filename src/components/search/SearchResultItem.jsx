@@ -1,16 +1,22 @@
 import PropTypes from "prop-types";
 import noop from "lodash/noop";
 
+import "./styles/searchResultItem.css";
+
 const SearchResultItem = ({
   title,
   image,
   imdbID,
   year,
-  // type,
+  type,
   clickHandler,
 }) => (
-  <div onClick={() => clickHandler({ title, imdbID })}>
+  <div
+    className="search-result-item"
+    onClick={() => clickHandler({ title, imdbID })}
+  >
     <h2>{title} {year && `(${year})`}</h2>
+    <h3>{type}</h3>
     <img src={image} alt={title} />
   </div>
 );
@@ -20,6 +26,7 @@ SearchResultItem.propTypes = {
   image: PropTypes.string,
   imdbID: PropTypes.string,
   year: PropTypes.string,
+  type: PropTypes.string,
   clickHandler: PropTypes.func,
 };
 
@@ -28,6 +35,7 @@ SearchResultItem.defaultProps = {
   image: null,
   imdbID: null,
   year: null,
+  type: null,
   clickHandler: noop,
 };
 
