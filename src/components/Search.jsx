@@ -15,8 +15,12 @@ const Search = ({ setSearchResults }) => {
   );
 
   useEffect(() => {
-    debouncedSearch(searchTerm);
-  }, [searchTerm, debouncedSearch]);
+    if (searchTerm.length > 0) {
+      debouncedSearch(searchTerm);
+    } else {
+      setSearchResults([]);
+    }
+  }, [searchTerm, debouncedSearch, setSearchResults]);
 
   return (
     <div>
