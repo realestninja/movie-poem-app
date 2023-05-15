@@ -29,6 +29,7 @@ const Search = ({ setSearchResults }) => {
         type="text"
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Pick a movie or series"
+        autoFocus
       />
     </div>
   );
