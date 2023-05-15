@@ -2,6 +2,9 @@ import { useEffect, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import debounce from "lodash/debounce";
 
+import { ReactComponent as CloseButtonIcon } from "../../assets/x-circle.svg"
+import "./styles/search.css";
+
 import searchApiCall from "../../helper/titleIdMatchingHelper";
 
 const Search = ({ setSearchResults, setSearchTerm, searchTerm }) => {
@@ -29,7 +32,7 @@ const Search = ({ setSearchResults, setSearchTerm, searchTerm }) => {
   };
 
   return (
-    <div>
+    <div className="search-area">
       <input
         value={searchTerm}
         type="text"
@@ -38,7 +41,9 @@ const Search = ({ setSearchResults, setSearchTerm, searchTerm }) => {
         autoFocus
         ref={inputRef}
       />
-      <button className="reset-search-term" onClick={resetSearchTerm}></button>
+      <button className="reset-search-term-button" onClick={resetSearchTerm}>
+        <CloseButtonIcon />
+      </button>
     </div>
   );
 };

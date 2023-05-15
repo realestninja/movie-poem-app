@@ -1,0 +1,20 @@
+.search-area {
+  display: flex;
+  justify-content: center;
+}
+
+.reset-search-term-button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5em;
+  padding: 0;
+  margin: 0;
+  margin-left: 15px;
+  height: 24px;
+  width: 24px;
+}
+
+.reset-search-term-button svg {
+  color: white;
+}

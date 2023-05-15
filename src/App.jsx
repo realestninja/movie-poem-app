@@ -10,6 +10,7 @@ import { fetchPoemFromApi } from "./helper/poemApiHelper";
 
 function App() {
   const [userSettings, setUserSettings] = useState({})
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults]  = useState([]);
   const [itemChoiceByUser, setItemChoiceByUser]  = useState(null);
   const [generatedPoem, setGeneratedPoem] = useState("");
@@ -38,7 +39,6 @@ function App() {
   }, [generatedPoem])
 
   const resetApp = () => {
-    setSearchResults([]);
     setItemChoiceByUser(null);
     setGeneratedPoem("");
     poemGenerationAbortController.abort();
@@ -53,7 +53,11 @@ function App() {
             setter={setUserSettings}
             userSettings={userSettings}
           />
-          <Search setSearchResults={setSearchResults} />
+          <Search
+            setSearchResults={setSearchResults}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
           <SearchResults
             items={searchResults}
             pickItem={setItemChoiceByUser}
