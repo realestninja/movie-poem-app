@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import './App.css'
+import LoadingBar from "./components/loading-bar/LoadingBar";
 import PoemDisplay from "./components/poem-display/PoemDisplay";
 import Search from './components/search/Search'
 import SearchResults from "./components/search/SearchResults";
@@ -48,9 +49,7 @@ function App() {
           />
         </>
       )}
-      {itemChoiceByUser && generatedPoem.length === 0 && (
-        <div className="loading-bar"><div className="loading-bar-inner"></div></div>
-      )}
+      {itemChoiceByUser && generatedPoem.length === 0 && <LoadingBar />}
       {generatedPoem.length > 0 && <PoemDisplay content={generatedPoem} />}
       {itemChoiceByUser && <button onClick={resetApp} className="reset-button">Reset</button>}
     </>
