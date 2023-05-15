@@ -3,7 +3,7 @@ import './styles/loadingBar.css'
 
 const arrayOfSillyReasons = [
   "Renting it online",
-  "Watching movie in super speed (with subtitles)",
+  "Watching it (super speed with subtitles)",
   "Writing the poem",
 ];
 
