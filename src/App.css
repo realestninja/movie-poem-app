@@ -9,15 +9,17 @@ h1:hover {
   cursor: pointer;
 }
 
-.reset-button {
-  @media (max-width: 768px) {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
+@media (max-width: 768px) {
+  .reset-button {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
   }
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .reset-button {
     margin-top: 45px;
   }
 }
