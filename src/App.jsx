@@ -10,17 +10,20 @@ function App() {
   const [searchResults, setSearchResults]  = useState([]);
   const [itemChoiceByUser, setItemChoiceByUser]  = useState(null);
   const [generatedPoem, setGeneratedPoem] = useState("");
+  const poemGenerationAbortController = new AbortController();
+  const { signal } = poemGenerationAbortController;
 
   useEffect(() => {
     console.log("itemChoiceByUser:", itemChoiceByUser);
 
-    if(itemChoiceByUser) {
+    if(itemChoiceByUser && !generatedPoem.length) {
       fetchPoemFromApi({
         payload: { imdbId: itemChoiceByUser },
         setter: setGeneratedPoem,
+        signal,
       });
     }
-  }, [itemChoiceByUser]);
+  }, [itemChoiceByUser, signal, generatedPoem]);
 
   useEffect(() => {
     console.log("generatedPoem:", generatedPoem);
@@ -30,6 +33,7 @@ function App() {
     setSearchResults([]);
     setItemChoiceByUser(null);
     setGeneratedPoem("");
+    poemGenerationAbortController.abort();
   }
 
   return (
