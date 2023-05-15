@@ -8,8 +8,8 @@ const arrayOfSillyReasons = [
 ];
 
 const pickReason = timing => {
-  if (timing > 7) return arrayOfSillyReasons[0];
-  if (timing > 5) return arrayOfSillyReasons[1];
+  if (timing > 6) return arrayOfSillyReasons[0];
+  if (timing > 3) return arrayOfSillyReasons[1];
   return arrayOfSillyReasons[2];
 }
 
