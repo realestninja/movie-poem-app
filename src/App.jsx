@@ -45,7 +45,7 @@ function App() {
         </>
       )}
       {itemChoiceByUser !== null && generatedPoem.length === 0 && (
-        <div className="loading-spinner"></div>
+        <div className="loading-bar"><div className="loading-bar-inner"></div></div>
       )}
       {generatedPoem.length > 0 && <PoemDisplay content={generatedPoem} />}
     </>
