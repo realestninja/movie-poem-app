@@ -1,7 +1,6 @@
 {
   "name": "moviepoemapp",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Nikhil Nawgiri",
   "type": "module",
   "scripts": {
