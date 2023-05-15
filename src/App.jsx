@@ -18,12 +18,15 @@ function App() {
   const { signal } = poemGenerationAbortController;
 
   useEffect(() => {
-    console.log("itemChoiceByUser:", itemChoiceByUser);
-    console.log("userSettings:", userSettings);
-
     if(itemChoiceByUser && !generatedPoem.length) {
+      const payload = {
+        imdbId: itemChoiceByUser,
+        ...userSettings,
+      }
+      console.log("payload:", payload);
+
       fetchPoemFromApi({
-        payload: { imdbId: itemChoiceByUser },
+        payload,
         setter: setGeneratedPoem,
         signal,
       });
