@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import './App.css'
+import PoemDisplay from "./components/poem-display/PoemDisplay";
 import Search from './components/search/Search'
 import SearchResults from "./components/search/SearchResults";
 import { fetchPoemFromApi } from "./helper/poemApiHelper";
@@ -8,7 +9,7 @@ import { fetchPoemFromApi } from "./helper/poemApiHelper";
 function App() {
   const [searchResults, setSearchResults]  = useState([]);
   const [itemChoiceByUser, setItemChoiceByUser]  = useState(null);
-  const [generatedPoem, setGeneratedPoem] = useState({});
+  const [generatedPoem, setGeneratedPoem] = useState("");
 
   useEffect(() => {
     console.log("itemChoiceByUser:", itemChoiceByUser);
@@ -25,9 +26,15 @@ function App() {
     console.log("generatedPoem:", generatedPoem);
   }, [generatedPoem])
 
+  const resetApp = () => {
+    setSearchResults([]);
+    setItemChoiceByUser(null);
+    setGeneratedPoem("");
+  }
+
   return (
     <>
-      <h1>movie poem app</h1>
+      <h1 onClick={resetApp}>movie poem app</h1>
       {!itemChoiceByUser && (
         <>
           <Search setSearchResults={setSearchResults} />
@@ -37,6 +44,10 @@ function App() {
           />
         </>
       )}
+      {itemChoiceByUser !== null && generatedPoem.length === 0 && (
+        <div className="loading-spinner"></div>
+      )}
+      {generatedPoem.length > 0 && <PoemDisplay content={generatedPoem} />}
     </>
   )
 }
