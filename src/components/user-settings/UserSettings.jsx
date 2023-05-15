@@ -8,7 +8,9 @@ function UserSettings({ setter, userSettings }) {
 
   const handleChange = event => {
     const { name, value } = event.target;
-    setter({ [name]: value });
+    const updatedSettings = { ...userSettings };
+    updatedSettings[name] = value;
+    setter(updatedSettings);
   };
 
   return (
