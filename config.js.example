@@ -1,2 +1,2 @@
 export const OMDB_API_KEY = "<key>"
-export const POEM_API_URL = "<api url that provides poem>";
+export const POEM_API_URL = "<api url that provides poem>"
