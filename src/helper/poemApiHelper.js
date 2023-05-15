@@ -1,8 +1,8 @@
-const API_URL = "https://serverless-movie-poem-api.nikhil-nawgiri9738.workers.dev";
+import { POEM_API_URL } from "../../config";
 
 export const fetchPoemFromApi = async({ payload, setter }) => {
   try {
-    const response = await fetch(API_URL, {
+    const response = await fetch(POEM_API_URL, {
       method: 'POST',
       body: JSON.stringify(payload),
       headers: {
