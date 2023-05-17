@@ -21,6 +21,9 @@ function UserSettings({ setter, userSettings }) {
           <option value="">Default</option>
           <option value="cheerful">Cheerful</option>
           <option value="gloomy">Gloomy</option>
+          <option value="sarcastic">Sarcastic</option>
+          <option value="spoilerFree">Spoiler-free</option>
+          <option value="condescending">Condescending</option>
         </select>
       </div>
       <div>
