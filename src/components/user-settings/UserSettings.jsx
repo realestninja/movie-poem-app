@@ -27,6 +27,7 @@ function UserSettings({ setter, userSettings }) {
         <label>Language</label>
         <select name="language" value={language} onChange={handleChange}>
           <option value="english">English</option>
+          <option value="serbian">Serbian</option>
           <option value="german">German</option>
           <option value="french">French</option>
           <option value="spanish">Spanish</option>
