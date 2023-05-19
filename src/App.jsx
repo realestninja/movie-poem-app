@@ -5,6 +5,7 @@ import LoadingBar from "./components/loading-bar/LoadingBar";
 import PoemDisplay from "./components/poem-display/PoemDisplay";
 import UserSettings from "./components/user-settings/UserSettings";
 import Search from './components/search/Search'
+import SearchInProgress from './components/search/SearchInProgress'
 import SearchResults from "./components/search/SearchResults";
 import { fetchPoemFromApi } from "./helper/poemApiHelper";
 
@@ -67,6 +68,7 @@ function App() {
       {itemChoiceByUser && generatedPoem.length === 0 && <LoadingBar />}
       {generatedPoem.length > 0 && <PoemDisplay content={generatedPoem} />}
       {itemChoiceByUser && <button onClick={resetApp} className="reset-button">Reset</button>}
+      {searchTerm && !searchResults.length > 0 && <SearchInProgress />}
     </>
   )
 }
